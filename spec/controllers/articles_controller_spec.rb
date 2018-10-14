@@ -39,6 +39,24 @@ describe ArticlesController do
       expected_article = Article.recent.second.id.to_s
       expect(json_data.first['id']).to eq(expected_article)
     end
+  end
 
+  describe '#show' do
+    subject(:get_show) { get :show, params: { id: article.id } }
+    let(:article) { create :article }
+
+    it 'should return success response' do
+      get_show
+      expect(response).to have_http_status(:ok)      
+    end
+
+    it 'should return proper json' do
+      get_show
+      expect(json_data['attributes']).to eq({
+        "title" => article.title,
+        "content" => article.content,
+        "slug" => article.slug
+      })
+    end     
   end
 end
