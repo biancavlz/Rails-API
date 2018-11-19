@@ -28,6 +28,9 @@ gem 'active_model_serializers', '~> 0.10.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'kaminari'
+gem "octokit", "~> 4.0"
+gem "loofah", ">= 2.2.3"
+gem "rack", ">= 2.0.6"
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
