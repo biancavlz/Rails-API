@@ -1,3 +1,5 @@
+require 'user_authenticator'
+
 class ApplicationController < ActionController::API
   class AuthorizationError < StandardError; end
 
