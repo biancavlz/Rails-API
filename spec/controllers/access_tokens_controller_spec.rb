@@ -76,7 +76,7 @@ RSpec.describe AccessTokensController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    context 'when invalid request' do
+    shared_examples_for 'forbidden_requests' do
       let(:authorization_error) do
         {
           "status" => "403",
@@ -85,8 +85,6 @@ RSpec.describe AccessTokensController, type: :controller do
           "detail" => "You have no right to access this resource"
         }
       end
-
-      subject { delete :destroy }
 
       it 'should return 403 status' do
         subject
@@ -99,8 +97,13 @@ RSpec.describe AccessTokensController, type: :controller do
       end
     end
 
-    context 'when valid request' do
+    context 'when invalid request' do
+      subject { delete :destroy }
+      
+      it_behaves_like 'forbidden_requests'
     end
 
+    context 'when valid request' do
+    end
   end
 end
