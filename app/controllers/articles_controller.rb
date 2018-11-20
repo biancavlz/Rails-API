@@ -10,4 +10,9 @@ class ArticlesController < ApplicationController
     article = Article.find(params[:id])
     render json: article
   end
+
+  def create
+
+
+  end
 end
