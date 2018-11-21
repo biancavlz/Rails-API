@@ -1,10 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Comments", type: :request do
-  describe "GET /comments" do
-    xit "works! (now write some real specs)" do
-      get comments_path
-      expect(response).to have_http_status(200)
+  describe "#validations" do
+    it 'should have a valid factory' do
+      expect(build :comment).to be_valid
     end
   end
 end
