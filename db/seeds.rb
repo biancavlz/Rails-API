@@ -19,3 +19,9 @@
 end
 
 puts "Created 3 articles"
+
+user = User.create(
+  { login: 'jsmith', name: 'John Smith', provider: 'github' }
+)
+
+puts "Created a user"
